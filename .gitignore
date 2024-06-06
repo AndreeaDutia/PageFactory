@@ -1,3 +1,4 @@
+.DS_Store
 .classpath
 .project
 .settings/
@@ -5,4 +6,6 @@ bin/
 target/
 test-output/
 credentials.properties
+.idea/
+login.properties
 

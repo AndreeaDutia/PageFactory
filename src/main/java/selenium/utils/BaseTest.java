@@ -41,7 +41,7 @@ public class BaseTest {
 	//	driver.close();//inchide tabul curent
 	}
 	
-	@AfterMethod
+	//@AfterMethod
 	public void recordFailure(ITestResult result) {
 		if (ITestResult.FAILURE == result.getStatus());
 		TakesScreenshot sc = (TakesScreenshot) driver;
