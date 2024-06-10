@@ -4,28 +4,37 @@
   <artifactId>PageFactory</artifactId>
   <version>0.0.1-SNAPSHOT</version>
   
-  <dependencies>
+   <dependencies>
 	  
 	  <!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java -->
 	<dependency>
-   		<groupId>org.seleniumhq.selenium</groupId>
-    	<artifactId>selenium-java</artifactId>
-    	<version>4.19.1</version>
+	    <groupId>org.seleniumhq.selenium</groupId>
+	    <artifactId>selenium-java</artifactId>
+	    <version>4.19.1</version>
 	</dependency>
-	
 	<!-- https://mvnrepository.com/artifact/org.testng/testng -->
 	<dependency>
-    	<groupId>org.testng</groupId>
-    	<artifactId>testng</artifactId>
-    	<version>7.10.1</version>
-   	 <scope>test</scope>
+	    <groupId>org.testng</groupId>
+	    <artifactId>testng</artifactId>
+	    <version>7.10.1</version>
+	    <scope>test</scope>
 	</dependency>
+	
+	<!-- https://mvnrepository.com/artifact/org.apache.logging.log4j/log4j-core -->
+<dependency>
+    <groupId>org.apache.logging.log4j</groupId>
+    <artifactId>log4j-core</artifactId>
+    <version>2.23.1</version>
+</dependency>
 
-	<dependency>
-		<groupId>CursSelenium</groupId>
-		<artifactId>CursSelenium</artifactId>
-		<version>0.0.1-SNAPSHOT</version>
-	</dependency>
-   </dependencies>
-   
+<!-- https://mvnrepository.com/artifact/org.apache.logging.log4j/log4j-api -->
+<dependency>
+    <groupId>org.apache.logging.log4j</groupId>
+    <artifactId>log4j-api</artifactId>
+    <version>2.23.1</version>
+</dependency>
+
+	
+  </dependencies>
+  
 </project>

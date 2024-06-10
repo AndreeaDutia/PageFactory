@@ -8,4 +8,6 @@ test-output/
 credentials.properties
 .idea/
 login.properties
+logs/
+poze/
 
