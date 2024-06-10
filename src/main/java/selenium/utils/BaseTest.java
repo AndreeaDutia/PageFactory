@@ -9,54 +9,69 @@ import java.util.Date;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.edge.EdgeDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.ITestResult;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterMethod;
+import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.Parameters;
 
 import com.google.common.io.Files;
 
+
 public class BaseTest {
-	
+
 	public WebDriver driver;
+
+	//ca sa rulam din test, nu din xml, comentam linia 31 si 38 si adaugam driver.get("https://keyfood.ro/");
 	
 	@Parameters({"url"})
 	@BeforeClass
 	public void setup(String appUrl) {
 		
-		driver = new EdgeDriver();
+		driver = new ChromeDriver();
 		driver.manage().window().maximize();
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 		driver.get(appUrl);
 		
-		}
+		
+	}
 	
 	@AfterClass
-	public void tearDown() throws InterruptedException {
+	public void tearDown() throws InterruptedException {	
 		Thread.sleep(5000);
-		driver.quit(); //inchide toate taburile
-	//	driver.close();//inchide tabul curent
+		driver.quit();//inchide toate taburile
+		//driver.close();//inchide tabul curent
 	}
 	
-	//@AfterMethod
-	public void recordFailure(ITestResult result) {
-		if (ITestResult.FAILURE == result.getStatus());
-		TakesScreenshot sc = (TakesScreenshot) driver;
-		File poza = sc.getScreenshotAs(OutputType.FILE);
-		String timeStamp = new SimpleDateFormat("yyyy.MM.dd.HH.mm.ss").format(new Date());
-		
-		
-		try {
-			Files.copy(poza, new File("poze/"+result.getName()+"-"+timeStamp+".png"));
-			System.out.println("Picture saved!");
-			
-		}catch (IOException e) {
-			System.out.println("Picture could not be saved!");
-			e.printStackTrace();
-		}
-	}
 
+	@AfterMethod
+	public void recordFailure(ITestResult result) {
+		
+		if(ITestResult.FAILURE == result.getStatus()) {
+			TakesScreenshot sc = (TakesScreenshot) driver;
+			File poza = sc.getScreenshotAs(OutputType.FILE);
+			String timeStamp = new SimpleDateFormat("yyyy.MM.dd.HH.mm.ss").format(new Date());
+			
+			try {
+				Files.copy(poza, new File("poze/"+result.getName()+"-"+timeStamp+".png"));
+				System.out.println("Picture saved!");
+			}catch(IOException e) {
+				System.out.println("Picture could not be saved!");
+				e.printStackTrace();
+			}
+			
+			
+		}
+		
+		
+		
+	}
+	
+	
+	
+	
 }
