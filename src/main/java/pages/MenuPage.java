@@ -26,7 +26,7 @@ public class MenuPage extends SeleniumWrappers{
 	@FindBy(linkText = "My account")
 	public WebElement myAccountLink;
 	
-	@FindBy(linkText = "Categories")
+	@FindBy(xpath = "//span[text()='ALL CATEGORIES']")
 	public WebElement CategoriesLink;
 	
 	@FindBy(linkText = "CONTACT")
