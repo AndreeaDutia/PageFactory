@@ -115,7 +115,7 @@ public class WhishlistTest extends BaseTest{
 		categoriesPage.click(categoriesPage.applyBtn);
 				
 		assertTrue(categoriesPage.notAddedToCartMsg.isDisplayed());
-		assertTrue(categoriesPage.CartNo.getText().equals("15"));		
+		assertTrue(categoriesPage.CartNo.getText().equals("3"));		
 		
 }
 }

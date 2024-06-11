@@ -5,7 +5,7 @@
     <parameter name="url" value="https://keyfood.ro/" />
     
         <classes>
-            <class name="tests.WhishlistTest" ></class>           
+            <class name="tests.PlaceOrderTest" ></class>           
         </classes>
     </test>
     

@@ -32,5 +32,12 @@ public class MenuPage extends SeleniumWrappers{
 	@FindBy(linkText = "CONTACT")
 	public WebElement ContactLink;
 	
+	@FindBy(xpath = "//input[@id='dgwt-wcas-search-input-1']")
+	public WebElement SearchLink;
+	
+	
+	
+	
+	
 
 }
