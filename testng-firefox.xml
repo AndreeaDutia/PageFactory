@@ -8,7 +8,7 @@
     <parameter name="browser" value="chrome" ></parameter>
     
         <classes>
-            <class name="tests.LoginTest" ></class>           
+            <class name="tests.ContactFormTest" ></class>           
         </classes>
     </test>
     

@@ -22,7 +22,7 @@ import org.testng.annotations.Parameters;
 import com.google.common.io.Files;
 
 
-public class BaseTest {
+public class BaseTest extends Driver {
 
 	public WebDriver driver;
 
@@ -30,9 +30,10 @@ public class BaseTest {
 	
 	@Parameters({"url"})
 	@BeforeClass
-	public void setup(String appUrl) {
+	public void setup(String browser, String appUrl) {
 		
-		driver = new ChromeDriver();
+		//driver = new ChromeDriver();
+		driver = initDriver(browser);
 		driver.manage().window().maximize();
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 		driver.get(appUrl);

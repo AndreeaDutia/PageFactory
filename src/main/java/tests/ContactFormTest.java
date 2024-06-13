@@ -1,5 +1,7 @@
 package tests;
 
+import static org.testng.Assert.assertEquals;
+
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
@@ -12,7 +14,7 @@ import selenium.utils.TestNgListener;
 
 public class ContactFormTest extends BaseTest{
 	
-	@Test
+	@Test(priority=1)
 	public void sendValidMessage() {
 		
 		MenuPage menuPage = new MenuPage(driver);
@@ -20,6 +22,21 @@ public class ContactFormTest extends BaseTest{
 		ContactPage contactPage = new ContactPage(driver);
 		
 		contactPage.sendMessage("Ion", "ion@ion.ion", "Salut ", "Salut eu sunt Ion");
+		
+		assertEquals(contactPage.getText(contactPage.sendMsgText), "Thank you for your message. It has been sent.");
+		
+	}
+	
+	@Test(priority=2)
+	public void sendinvalidMessage() {
+		
+		MenuPage menuPage = new MenuPage(driver);
+		menuPage.click(menuPage.ContactLink);
+		ContactPage contactPage = new ContactPage(driver);
+		
+		contactPage.sendMessage("Ion", "", "Salut ", "Salut eu sunt Ion");
+		
+		assertEquals(contactPage.getText(contactPage.sendMsgText), "One or more fields have an error. Please check and try again.");
 				
 		
 	}
